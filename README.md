@@ -1,6 +1,8 @@
 ## 旅游社区
 
-##资料
+## 资料
+
+[bootstarp文档](https://v3.bootcss.com/)
 
 [spring文档](https://spring.io/guides)
 
@@ -16,14 +18,14 @@
 
 [springboot集成mybatis](http://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/)
 
-[flyway](https://flywaydb.org/)
+[flyway文档](https://flywaydb.org/)
 
 
 ## git地址
 
 https://github.com/A1tw00dy/community
 
-##脚本
+## 脚本
 
 ```sql
 create table USER
@@ -35,4 +37,7 @@ create table USER
 	GMT_CREATE BIGINT,
 	GMT_MODIFIED BIGINT,
 );
+```
+```markdown
+mvn flyway:migrate
 ```
