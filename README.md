@@ -1,6 +1,7 @@
 ## 旅游社区
 
 ##资料
+
 [spring文档](https://spring.io/guides)
 
 [springboot文档](https://docs.spring.io/spring-boot/docs/2.2.1.RELEASE/reference/htmlsingle/#boot-features-configure-datasource)
@@ -15,21 +16,23 @@
 
 [springboot集成mybatis](http://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/)
 
+[flyway](https://flywaydb.org/)
+
 
 ## git地址
+
 https://github.com/A1tw00dy/community
 
 ##脚本
+
 ```sql
 create table USER
 (
-	ID INT auto_increment,
+	ID INT auto_increment PRIMARY KEY NOT NULL,
 	ACCOUNT_ID VARCHAR(100),
 	NAME VARCHAR(50),
 	TOKEN CHAR(36),
 	GMT_CREATE BIGINT,
 	GMT_MODIFIED BIGINT,
-	constraint USER_PK
-		primary key (ID)
 );
 ```

@@ -9,5 +9,9 @@ class CommunityApplicationTests {
     @Test
     void contextLoads() {
     }
+    @Test
+    void time(){
+        System.out.println(System.currentTimeMillis());
+    }
 
 }
