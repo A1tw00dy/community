@@ -1,6 +1,6 @@
 create table question
 (
-	int int auto_increment,
+	id int auto_increment,
 	title varchar(50),
 	description text,
 	gmt_create bigint,
@@ -11,5 +11,5 @@ create table question
 	like_count int default 0,
 	tag varchar(256),
 	constraint QUESTION_PK
-		primary key (int)
+		primary key (id)
 );
