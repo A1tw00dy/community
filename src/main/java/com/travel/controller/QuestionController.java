@@ -1,8 +1,7 @@
-package com.travle.controller;
+package com.travel.controller;
 
-import com.travle.dto.QuestionDTO;
-import com.travle.mapper.QuestionMapper;
-import com.travle.service.QuestionService;
+import com.travel.dto.QuestionDTO;
+import com.travel.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

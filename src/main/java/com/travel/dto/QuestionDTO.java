@@ -1,6 +1,6 @@
-package com.travle.dto;
+package com.travel.dto;
 
-import com.travle.model.User;
+import com.travel.model.User;
 import lombok.Data;
 
 @Data

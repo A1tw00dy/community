@@ -1,4 +1,4 @@
-package com.travle.model;
+package com.travel.model;
 
 import lombok.Data;
 

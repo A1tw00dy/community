@@ -1,12 +1,9 @@
-package com.travle.controller;
+package com.travel.controller;
 
-import com.travle.dto.QuestionDTO;
-import com.travle.mapper.QuestionMapper;
-import com.travle.mapper.UserMapper;
-import com.travle.model.Question;
-import com.travle.model.User;
-import com.travle.service.QuestionService;
-import org.apache.ibatis.annotations.Param;
+import com.travel.dto.QuestionDTO;
+import com.travel.model.Question;
+import com.travel.model.User;
+import com.travel.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller

@@ -1,8 +1,8 @@
-package com.travle.provider;
+package com.travel.provider;
 
 import com.alibaba.fastjson.JSON;
-import com.travle.dto.AccessTokenDTO;
-import com.travle.dto.GithubUser;
+import com.travel.dto.AccessTokenDTO;
+import com.travel.dto.GithubUser;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
 

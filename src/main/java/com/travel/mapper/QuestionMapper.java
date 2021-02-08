@@ -1,6 +1,6 @@
-package com.travle.mapper;
+package com.travel.mapper;
 
-import com.travle.model.Question;
+import com.travel.model.Question;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 

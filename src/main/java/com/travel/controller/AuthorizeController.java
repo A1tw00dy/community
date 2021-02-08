@@ -1,11 +1,10 @@
-package com.travle.controller;
+package com.travel.controller;
 
-import com.travle.dto.AccessTokenDTO;
-import com.travle.dto.GithubUser;
-import com.travle.mapper.UserMapper;
-import com.travle.model.User;
-import com.travle.provider.GitHubProvider;
-import com.travle.service.UserService;
+import com.travel.dto.AccessTokenDTO;
+import com.travel.dto.GithubUser;
+import com.travel.model.User;
+import com.travel.provider.GitHubProvider;
+import com.travel.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;

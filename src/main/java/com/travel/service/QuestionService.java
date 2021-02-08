@@ -1,12 +1,11 @@
-package com.travle.service;
+package com.travel.service;
 
-import com.fasterxml.jackson.databind.util.BeanUtil;
-import com.travle.dto.PaginationDTO;
-import com.travle.dto.QuestionDTO;
-import com.travle.mapper.QuestionMapper;
-import com.travle.mapper.UserMapper;
-import com.travle.model.Question;
-import com.travle.model.User;
+import com.travel.dto.PaginationDTO;
+import com.travel.dto.QuestionDTO;
+import com.travel.mapper.QuestionMapper;
+import com.travel.mapper.UserMapper;
+import com.travel.model.Question;
+import com.travel.model.User;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

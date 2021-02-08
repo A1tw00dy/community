@@ -1,7 +1,7 @@
-package com.travle.interceptor;
+package com.travel.interceptor;
 
-import com.travle.mapper.UserMapper;
-import com.travle.model.User;
+import com.travel.mapper.UserMapper;
+import com.travel.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.HandlerInterceptor;

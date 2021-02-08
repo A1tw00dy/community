@@ -1,4 +1,4 @@
-package com.travle.dto;
+package com.travel.dto;
 
 import lombok.Data;
 
