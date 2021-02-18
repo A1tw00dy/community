@@ -4,6 +4,7 @@ import com.travel.dto.PaginationDTO;
 import com.travel.dto.QuestionDTO;
 import com.travel.exception.CustomizeErrorCode;
 import com.travel.exception.CustomizeException;
+import com.travel.mapper.QuestionExtMapper;
 import com.travel.mapper.QuestionMapper;
 import com.travel.mapper.UserMapper;
 import com.travel.model.Question;
@@ -24,6 +25,8 @@ public class QuestionService {
     private UserMapper userMapper;
     @Autowired
     private QuestionMapper questionMapper;
+    @Autowired
+    private QuestionExtMapper questionExtMapper;
 
     public PaginationDTO list(Integer page, Integer size) {
         PaginationDTO paginationDTO = new PaginationDTO();
@@ -126,5 +129,12 @@ public class QuestionService {
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
         }
+    }
+
+    public void incView(Integer id) {
+        Question question = new Question();
+        question.setId(id);
+        question.setViewCount(1);
+        questionExtMapper.incView(question);
     }
 }
