@@ -1,6 +1,5 @@
 package com.travel.service;
 
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 import com.travel.dto.CommentDTO;
 import com.travel.enums.CommentTypeEnum;
 import com.travel.exception.CustomizeErrorCode;
@@ -61,9 +60,10 @@ public class CommentService {
         }
     }
 
-    public List<CommentDTO> listByQuestionId(Long id) {
+    public List<CommentDTO> listByTargetId(Long id, CommentTypeEnum type) {
         CommentExample commentExample = new CommentExample();
-        commentExample.createCriteria().andParentIdEqualTo(id).andTypeEqualTo(CommentTypeEnum.QUESTION.getType());
+        commentExample.createCriteria().andParentIdEqualTo(id).andTypeEqualTo(type.getType());
+        commentExample.setOrderByClause("gmt_create desc");
         List<Comment> comments = commentMapper.selectByExample(commentExample);
         if (comments.size() == 0){
             return new ArrayList<>();
