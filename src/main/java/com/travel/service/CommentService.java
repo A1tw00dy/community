@@ -4,10 +4,7 @@ import com.travel.dto.CommentDTO;
 import com.travel.enums.CommentTypeEnum;
 import com.travel.exception.CustomizeErrorCode;
 import com.travel.exception.CustomizeException;
-import com.travel.mapper.CommentMapper;
-import com.travel.mapper.QuestionExtMapper;
-import com.travel.mapper.QuestionMapper;
-import com.travel.mapper.UserMapper;
+import com.travel.mapper.*;
 import com.travel.model.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +27,8 @@ public class CommentService {
     private QuestionExtMapper questionExtMapper;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private CommentExtMapper commentExtMapper;
 
     @Transactional
     public void insert(Comment comment) {
@@ -47,7 +46,11 @@ public class CommentService {
                 throw new CustomizeException(CustomizeErrorCode.COMMENT_NOT_FOUND);
             }
             commentMapper.insert(comment);
-
+            //增加评论数
+            Comment parentComment = new Comment();
+            parentComment.setId(comment.getParentId());
+            parentComment.setCommentCount(1);
+            commentExtMapper.incCommentCount(parentComment);
         }else{
             //回复问题
             Question question = questionMapper.selectByPrimaryKey(comment.getParentId());
