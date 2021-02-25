@@ -2,6 +2,8 @@ package com.travel.service;
 
 import com.travel.dto.CommentDTO;
 import com.travel.enums.CommentTypeEnum;
+import com.travel.enums.NotificationEnum;
+import com.travel.enums.NotificationTypeEnum;
 import com.travel.exception.CustomizeErrorCode;
 import com.travel.exception.CustomizeException;
 import com.travel.mapper.*;
@@ -29,7 +31,8 @@ public class CommentService {
     private UserMapper userMapper;
     @Autowired
     private CommentExtMapper commentExtMapper;
-
+    @Autowired
+    private NotificationMapper notificationMapper;
     @Transactional
     public void insert(Comment comment) {
 
@@ -51,6 +54,8 @@ public class CommentService {
             parentComment.setId(comment.getParentId());
             parentComment.setCommentCount(1);
             commentExtMapper.incCommentCount(parentComment);
+            //创建通知
+            createNotify(comment, dbcomment.getCommentator());
         }else{
             //回复问题
             Question question = questionMapper.selectByPrimaryKey(comment.getParentId());
@@ -60,7 +65,21 @@ public class CommentService {
             commentMapper.insert(comment);
             question.setCommentCount(1);
             questionExtMapper.incCommentCount(question);
+
+            createNotify(comment,question.getCreator());
+
         }
+    }
+
+    private void createNotify(Comment comment, Long receiver) {
+        Notification notification = new Notification();
+        notification.setGmtCreate(System.currentTimeMillis());
+        notification.setType(NotificationEnum.REPLY_COMMENT.getType());
+        notification.setOuterid(comment.getParentId());
+        notification.setNotifier(comment.getCommentator());
+        notification.setStatus(NotificationTypeEnum.UNREAD.getStatus());
+        notification.setReceiver(receiver);
+        notificationMapper.insert(notification);
     }
 
     public List<CommentDTO> listByTargetId(Long id, CommentTypeEnum type) {
